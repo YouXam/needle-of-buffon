@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buffon's Needle</title>
+  <script src="https://unpkg.com/p5/lib/p5.min.js"></script>
+  <script src="sketch.js"></script>
+</head>
+<body style="margin: 0; background-color: black;">
+    <main>
+    </main>
+    <script>
+        var Module = {
+            onRuntimeInitialized: function() {
+                console.log('Module.onRuntimeInitialized', Module)
+                window.addNeedle2 = function(lines, width, repeat) {
+                    const linesPtr = Module._malloc(lines.length * 4);
+                    Module.HEAP32.set(lines, linesPtr >> 2);
+                    const intersected = Module._addNeedle2(linesPtr, lines.length, width, repeat);
+                    Module._free(linesPtr);
+                    return intersected;
+                }
+            }
+        };
+    </script>
+    <script src="addNeedle2.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+emcc -O2 -s WASM=1 -s EXPORTED_FUNCTIONS="['_addNeedle2','_malloc','_free']" -o addNeedle2.js needle.cpp
