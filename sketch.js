@@ -32,7 +32,7 @@ function setup() {
   let btn2 = createButton('投10根针');
   btn2.mousePressed(() => {
     for (let i = 0; i < 10; i++) {
-      addNeedle(false);
+      addNeedle(true);
     }
   });
 
